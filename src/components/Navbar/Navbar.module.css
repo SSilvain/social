@@ -1,0 +1,21 @@
+.nav {
+    grid-area: n;
+    background-color: rgb(178, 196, 230);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.item a {
+    font-size: 22px;
+    color: rgb(25, 46, 58);
+    text-decoration: none;
+}
+
+a.active {
+    color: rgb(255, 255, 255);
+}
+
+.friends {
+    padding: 20px;
+    color: rgb(255, 255, 255);
+}

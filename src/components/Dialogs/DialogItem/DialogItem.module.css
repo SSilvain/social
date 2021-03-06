@@ -1,0 +1,16 @@
+.dialogItem {
+    margin-bottom: 5px;
+}
+.dialogItem a {
+    display: block;
+    text-align: center;
+    color: white;
+    background-color: rgb(16, 130, 175);
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.dialogItem .active {
+    color: rgb(0, 0, 0);
+}
