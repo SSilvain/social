@@ -2,6 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
+import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
     let TITLE = "Users Page";
@@ -11,41 +12,47 @@ let Users = (props) => {
         pages.push(i);
     }
     let pagesRenderArray = pages.map(p => {
-        return <span onClick={(e) => { props.onPageChanged(p) }} key={p}
-            className={props.currentPage === p && s.selectedPage}>{p} </span>
+        return <span onClick={(e) => {
+            props.onPageChanged(p)
+        }} key={p}
+                     className={props.currentPage === p && s.selectedPage}>{p} </span>
     });
 
     return (<div>
-        <Helmet>
-            <title>{TITLE}</title>
-        </Helmet>
-        {/*<button onClick={getUsers}>GetUsers</button>*/}
-        <div>
-            {pagesRenderArray}
-        </div>
-        {props.users.map(u =>
-        (<div key={u.id} className={s.flexBox}>
+            <Helmet>
+                <title>{TITLE}</title>
+            </Helmet>
+            {/*<button onClick={getUsers}>GetUsers</button>*/}
+            <div>
+                {pagesRenderArray}
+            </div>
+            {props.users.map(u =>
+                (<div key={u.id} className={s.flexBox}>
             <span>
-                <div><img src={
-                    u.photos.small
-                        ? u.photos.small
-                        : userPhoto
-                } alt="ava" /></div>
+                <div>
+                    <NavLink to={'/profile/' + u.id}>
+                    <img src={
+                        u.photos.small
+                            ? u.photos.small
+                            : userPhoto
+                    } alt="ava"/>
+                    </NavLink>
+                </div>
                 <div>
                     {u.followed
                         ? <button onClick={() => {
                             props.unfollow(u.id)
                         }}>
                             unfollow
-                            </button>
+                        </button>
                         : <button onClick={() => {
                             props.follow(u.id)
                         }}>
                             Follow
-                            </button>}
+                        </button>}
                 </div>
             </span>
-            <span className={s.flexBox}>
+                    <span className={s.flexBox}>
                 <span>
                     <div>{u.name}</div>
                     <div>{u.status}</div>
@@ -55,9 +62,9 @@ let Users = (props) => {
                     <div>{"u.location.city"}</div>
                 </span>
             </span>
-        </div>))
-        }
-    </div>
+                </div>))
+            }
+        </div>
     )
 }
 
