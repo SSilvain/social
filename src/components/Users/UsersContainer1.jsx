@@ -1,5 +1,5 @@
 import Users from "./Users";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import {
     follow,
     setCurrentPage,
@@ -37,7 +37,7 @@ class UsersContainer extends React.Component {
 
     render() {
         return <>
-            <div>{this.props.isFatching ? <Preloader/> : null}</div>
+            <div>{this.props.isFatching ? <Preloader /> : null}</div>
             <Users
                 totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
@@ -61,28 +61,6 @@ let mapStateToProps = (state) => {
         isFatching: state.usersPage.isFatching
     }
 }
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         follow: (userId) => {
-//             dispatch(followAC(userId));
-//         },
-//         unfollow: (userId) => {
-//             dispatch(unfollowAC(userId));
-//         },
-//         setUsers: (users) => {
-//             dispatch(setUsersAC(users));
-//         },
-//         setCurrentPage: (pageNumber) => {
-//             dispatch(setCurrentPageAC(pageNumber));
-//         },
-//         setUsersTotalCount: (totalCount) => {
-//             dispatch(setUsersTotalCountAC(totalCount));
-//         },
-//         toggleIsFatching: (isFatching) => {
-//             dispatch(toggleIsFatchingAC(isFatching));
-//         }
-//     }
-// }
 
 export default connect(mapStateToProps,
     {
