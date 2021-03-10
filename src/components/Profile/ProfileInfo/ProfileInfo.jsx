@@ -1,7 +1,11 @@
 import React from "react";
-import s from './Information.module.css';
+import Preloader from "../../common/Preloader/Preloader";
+import s from './ProfileInfo.module.css';
 
-const Information = (props) => {
+const ProfileInfo = (props) => {
+    if (!props.profile) {
+        return <Preloader />
+    }
     return (
         <div>
             <div className={s.imageWrapper}>
@@ -14,7 +18,7 @@ const Information = (props) => {
                 <div>
                     <img
                         className={s.ava}
-                        src="https://cdn.vox-cdn.com/thumbor/CmMjXu8KUUpGp0nMRWCYtKBJURY=/1400x788/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/19921093/mgidarccontentnick.comc008fa9d_d.png"
+                        src={props.profile.photos.large}
                         alt=""
                     />
                 </div>
@@ -23,4 +27,4 @@ const Information = (props) => {
         </div>
     );
 }
-export default Information;
+export default ProfileInfo;
