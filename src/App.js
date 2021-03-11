@@ -13,6 +13,9 @@ import Helmet from "react-helmet";
 
 function App() {
     let TITLE = "APP PAGE";
+
+    console.log("hellllo");
+
     return (
         <div className="app-wrapper">
             <Helmet>
@@ -22,7 +25,10 @@ function App() {
             <Navbar />
             <div className="content">
                 <Route path="/dialogs" render={() => <DialogsContainer />} />
-                <Route path="/profile" render={() => <ProfileContainer />} />
+                <Route
+                    path="/profile/:userid?"
+                    render={() => <ProfileContainer />}
+                />
                 <Route
                     path="/users"
                     render={() => <UsersContainer1 />}
