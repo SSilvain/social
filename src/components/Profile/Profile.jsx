@@ -4,7 +4,6 @@ import s from "./Profile.module.css"
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 const Profile = (props) => {
-    window.props = props;
     return (
         <div className={s.profile}>
             <ProfileInfo profile={props.profile} />

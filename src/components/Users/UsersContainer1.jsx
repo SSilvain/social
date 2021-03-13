@@ -7,7 +7,7 @@ import {
     setUsers,
     unfollow,
     toggleIsFatching
-} from "../../Redux/users-reduser";
+} from "../../Redux/users-reducer";
 import React from "react";
 import * as axios from "axios";
 import Preloader from "./../common/Preloader/Preloader"

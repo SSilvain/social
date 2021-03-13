@@ -14,8 +14,6 @@ import Helmet from "react-helmet";
 function App() {
     let TITLE = "APP PAGE";
 
-    console.log("hellllo");
-
     return (
         <div className="app-wrapper">
             <Helmet>
