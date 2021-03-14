@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
 import { Route } from "react-router-dom";
-import Header from "./components/Header/Header";
+import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import News from "./components/News/News";
@@ -13,13 +13,12 @@ import Helmet from "react-helmet";
 
 function App() {
     let TITLE = "APP PAGE";
-
     return (
         <div className="app-wrapper">
             <Helmet>
                 <title>{TITLE}</title>
             </Helmet>
-            <Header />
+            <HeaderContainer />
             <Navbar />
             <div className="content">
                 <Route path="/dialogs" render={() => <DialogsContainer />} />

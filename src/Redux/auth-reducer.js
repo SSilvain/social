@@ -5,6 +5,7 @@ let initialUserState = {
     email: null,
     login: null,
     isFatching: false,
+    isAuth: false,
 };
 
 const authReduser = (state = initialUserState, action) => {
@@ -13,13 +14,14 @@ const authReduser = (state = initialUserState, action) => {
             return {
                 ...state,
                 ...action.data,
+                isAuth: true,
             };
         default:
             return state;
     }
 };
 
-export const setUserData = (userId, email, login) => ({
+export const setAuthUserData = (userId, email, login) => ({
     type: SET_USER_DATA,
     data: {
         userId,
