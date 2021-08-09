@@ -13,7 +13,7 @@ import Helmet from "react-helmet";
 import { funcTest } from "./components/Dialogs/dialog-test";
 
 function App() {
-    let TITLE = "APP PAGE";
+    let TITLE = "Home";
     funcTest("hello");
     return (
         <div className="app-wrapper">

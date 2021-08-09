@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Helmet from "react-helmet";
 import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
@@ -8,8 +8,18 @@ let Users = (props) => {
     let TITLE = "Users Page";
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
+    let [lastPage, setLastPage] = useState(25)
+    const increaseLastPage = (e) => {
+        e.preventDefault();
+        setLastPage(lastPage++);
+        console.log(lastPage);
+    }
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
+        if (i > lastPage) {
+            pages.push(<button onClick={increaseLastPage}>Next</button>)
+            break
+        }
     }
     let pagesRenderArray = pages.map(p => {
         return <span onClick={(e) => {

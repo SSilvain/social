@@ -1,4 +1,4 @@
-export const funcTest = (text) => {
+export const funcTest = () => {
     let obj = {
         first: "one",
         second: "two",
