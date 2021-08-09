@@ -20,25 +20,25 @@ const PagesRenderArray = ({ pagesCount, onPageChanged, currentPage }) => {
 		}
 	}
 	let Pages = pages.map(p => {
-		return <span onClick={(e) => {
+		return <div className={s.pageOuter}><span onClick={(e) => {
 			e.preventDefault();
 			onPageChanged(p)
 		}} key={p}
-			className={ currentPage === p ? s.selectedPage:s.page}>{p} </span>
+			className={currentPage === p ? s.selectedPage : s.page}>{p} </span></div>
 	});
 	
 	let Next = () => {
 		if (nextPage) {
 			return (
-				<button onClick={increaseLastPage}>Next</button>
+				<button className={s.button} onClick={increaseLastPage}>Next</button>
 			)
 		}
 	}
 	return (
-		<>
+		<div className={s.pages}>
 			{Pages}
 			{Next()}
-		</>
+		</div>
 	)
 }
 

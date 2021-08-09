@@ -1,14 +1,50 @@
+.pages{
+	overflow: hidden;
+}
+.pageOuter {
+	position: relative;
+	display: block;
+	float: left;
+	text-align: center;
+	/* align-items: center; */
+	/* justify-content: center; */
+	width: 30px;
+	height: 50px;
+}
+
 .selectedPage {
+	/* position: absolute; */
+	/* top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%; */
 	color: red;
 	font-size: 20px;
 	font-weight: bold;
 	cursor: pointer;
+	line-height: 70px;
 }
-
-.page{
+.page {
 	cursor: pointer;
 	color: #333;
+	transition: all .2s;
+	font-size: 20px;
+	line-height: 70px;
 }
-.page:hover{
-	color: #777;
+.button{
+	cursor: pointer;
+	color: #333;
+	transition: all .2s;
+	font-size: 20px;
+	line-height: 70px;
+}
+
+@media (any-hover: hover) {
+	.page:hover {
+		/* font-weight: bold; */
+		font-size: 38px;
+		color: rgb(209, 20, 17);
+		line-height: 70px;
+		/* text-decoration: underline; */
+	}
 }
