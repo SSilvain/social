@@ -3,38 +3,21 @@ import Helmet from "react-helmet";
 import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import { NavLink } from "react-router-dom";
+import PagesRenderArray from "./PagesRenderArray/PagesRenderArray";
+
 
 let Users = (props) => {
     let TITLE = "Users Page";
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-    let pages = [];
-    let [lastPage, setLastPage] = useState(25)
-    const increaseLastPage = (e) => {
-        e.preventDefault();
-        setLastPage(lastPage++);
-        console.log(lastPage);
-    }
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
-        if (i > lastPage) {
-            pages.push(<button onClick={increaseLastPage}>Next</button>)
-            break
-        }
-    }
-    let pagesRenderArray = pages.map(p => {
-        return <span onClick={(e) => {
-            props.onPageChanged(p)
-        }} key={p}
-            className={props.currentPage === p && s.selectedPage}>{p} </span>
-    });
 
+   
     return (<div>
         <Helmet>
             <title>{TITLE}</title>
         </Helmet>
         {/*<button onClick={getUsers}>GetUsers</button>*/}
         <div>
-            {pagesRenderArray}
+            <PagesRenderArray currentPage={props.currentPage} onPageChanged={props.onPageChanged} pagesCount={pagesCount} />
         </div>
         {props.users.map(u =>
         (<div key={u.id} className={s.flexBox}>

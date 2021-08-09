@@ -1,0 +1,14 @@
+.selectedPage {
+	color: red;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.page{
+	cursor: pointer;
+	color: #333;
+}
+.page:hover{
+	color: #777;
+}
